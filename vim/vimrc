@@ -1,0 +1,102 @@
+set term=xterm-256color
+" Config for Vundle
+set nocompatible " required
+filetype off     " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end() "required
+filetype plugin indent on " required
+
+Plugin 'vim-scripts/indentpython.vim'
+
+" For public
+set encoding=utf-8
+set nu
+set ts=4
+set mouse=a
+noremap <Leader>s :update<CR>
+vnoremap // y/<c-r>"<cr>
+set shiftwidth=4
+set colorcolumn=101
+"for cursor
+set cursorcolumn
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=NONE guifg=NONE
+" For paste
+set clipboard+=unnamed
+set paste
+set go+=a
+
+"Auto Complete
+"Plugin 'Valloric/YouCompleteMe'
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g :YcmCompleter GoToDefintionElseDecalaration<CR>
+
+" File browser
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeWinSize=25
+let NERDTreeShowHidden=1
+"let NERDTreeShowBookmarks=1
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-n> :tabnew<CR>
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" Toggle all for copy multi lines in outside :IndentLinesToggle<CR>
+map <F2> :IndentLinesToggle<CR> :set invnumber<CR> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
+
+" Search
+" Plugin 'kien/ctrlp.vim'
+
+" Status Bar
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" AutoPep8
+Plugin 'tell-k/vim-autopep8'
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+let g:autopep8_max_line_length=100
+
+" Flake8
+Plugin 'nvie/vim-flake8'
+map <F7> :SyntasticToggleMode<CR> :SyntasticCheck<CR>
+let g:syntastic_python_checkers = ['flake8']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+" indent
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_char='¦'
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 239
+
+" () audo Pair
+Plugin 'jiangmiao/auto-pairs'
+
+" comment
+Plugin 'scrooloose/nerdcommenter'
+map <F4> <leader>ci <CR>
+
+
+
+
