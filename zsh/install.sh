@@ -3,6 +3,7 @@
 MY_DIR=$(dirname "$0")
 
 echo "Install oh my zsh"
+export RUNZSH=no
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
