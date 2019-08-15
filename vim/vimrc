@@ -21,6 +21,7 @@ filetype plugin indent on " required
 Plugin 'vim-scripts/indentpython.vim'
 
 " For public
+set hlsearch
 set encoding=utf-8
 set nu
 set ts=4
