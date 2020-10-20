@@ -4,7 +4,8 @@ MY_DIR=$(dirname "$0")
 
 echo "Install oh my zsh"
 export RUNZSH=no
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh $MY_DIR/install_ohmyzsh.sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo "Config zsh"
